@@ -1,11 +1,11 @@
-SET currentValuesPath = %1
-SET changeInterval = %2
+SET currentValuesPath=%1
+SET changeInterval=%2
 
-@if "%currentValuesPath%" == "" (
+@IF [%1] == [] (
     Echo Current values path should not be empty
     GOTO completed
 )
-@if "%changeInterval%" == "" (
+@if [%2] == [] (
     Echo Change interval should not be empty
     GOTO completed
 )
