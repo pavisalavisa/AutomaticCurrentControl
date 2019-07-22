@@ -10,7 +10,7 @@ SET changeInterval=%2
     GOTO completed
 )
 
-powershell -executionpolicy remotesigned -File ./build.ps1 -currentValuesPath %currentValuesPath% -changeInterval %changeInterval%
+powershell -executionpolicy bypass -File ./build.ps1 -currentValuesPath %currentValuesPath% -changeInterval %changeInterval%
 exit /b %errorlevel%
 
 :completed
