@@ -23,7 +23,7 @@ $sourceDirectory="$rootDirectory\src"
 $deploymentDirectory="$rootDirectory\deployment"
 
 Write-Host "Cleaning build artifacts" -ForegroundColor Green
-Remove-Item $deploymentDirectory -Force -Recurse -ErrorAction Continue
+Remove-Item $deploymentDirectory -Force -Recurse -ErrorAction SilentlyContinue
 
 New-Item -Path $deploymentDirectory -ItemType Directory -Force -ErrorAction Continue | Out-Null
 Write-Host "Finished cleaning build artifacts" -ForegroundColor Green
