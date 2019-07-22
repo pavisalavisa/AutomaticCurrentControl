@@ -1,6 +1,7 @@
 float currentValues[]={{CurrentValues}};
 int currentBinaryValue[12];//MSB->LSB
-int intervalInSeconds={{intervalInSeconds}};
+int intervalInSeconds={{IntervalInSeconds}};
+int valuesCount={{ValuesCount}}
 int valueIndex=0;
 float resolution=0.025;
 
@@ -21,10 +22,12 @@ void setup() {
 }
 
 void loop() {
-  setCurrentValue(valueIndex);
+  if(valueIndex < valuesCount){
+    setCurrentValue(valueIndex);
 
-  delay(intervalInSeconds*1000);
-  valueIndex++; 
+    delay(intervalInSeconds * 1000);
+    valueIndex++;   
+  }  
 }
 
 void setCurrentValue(int valueIndex){
