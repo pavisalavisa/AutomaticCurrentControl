@@ -15,18 +15,21 @@ Function Get-Current-Values{
     return $currentValues
 } 
 
-Write-Host "Building automatic current control $currentValuesPath $changeInterval" -ForegroundColor Green
+Write-Host "Building automatic current control $currentValuesPath $changeInterval" -ForegroundColor Magenta
 $global:ErrorActionPreference="Stop"
 
 $rootDirectory=$PSScriptRoot
 $sourceDirectory="$rootDirectory\src"
-$deploymentDirectory="$rootDirectory\deployment"
+$deploymentDirectory="$rootDirectory\deployment\automaticCurrentControl"
 
-Write-Host "Cleaning build artifacts" -ForegroundColor Green
-Remove-Item $deploymentDirectory -Force -Recurse -ErrorAction Continue
-
-New-Item -Path $deploymentDirectory -ItemType Directory -Force -ErrorAction Continue | Out-Null
+Write-Host "Cleaning build artifacts" -ForegroundColor Magenta
+Remove-Item $deploymentDirectory -Force -Recurse -ErrorAction SilentlyContinue
 Write-Host "Finished cleaning build artifacts" -ForegroundColor Green
+
+Write-Host "Creating deployments directory structure" -ForegroundColor Magenta
+New-Item -Path $deploymentDirectory -ItemType Directory -Force -ErrorAction Continue | Out-Null
+# New-Item -Path $deploymentDirectory\automaticCurrentControl -ItemType Directory -Force -ErrorAction Continue | Out-Null
+Write-Host "Finished creating deployments directory structure" -ForegroundColor Green
 
 $currentValues=Get-Current-Values $currentValuesPath
 Write-Host "Values read from csv:$currentValues"
