@@ -32,10 +32,11 @@ New-Item -Path $deploymentDirectory -ItemType Directory -Force -ErrorAction Cont
 Write-Host "Finished creating deployments directory structure" -ForegroundColor Green
 
 $currentValues=Get-Current-Values $currentValuesPath
-Write-Host "Values read from csv:$currentValues"
-Copy-Item "$sourceDirectory\automaticCurrentControl.template.ino" "$deploymentDirectory\automaticCurrentControl.ino" -Force
+$valuesCount=($currentValues -split ",").Count
+Write-Host "Values ($valuesCount) read from csv:$currentValues"
+Copy-Item "$sourceDirectory\automaticCurrentControl.template" "$deploymentDirectory\automaticCurrentControl.ino" -Force
 
-(Get-Content "$deploymentDirectory\automaticCurrentControl.ino").replace('{{CurrentValues}}', "{$currentValues}").replace('{{intervalInSeconds}}',"$changeInterval") | Set-Content "$deploymentDirectory\automaticCurrentControl.ino"
+(Get-Content "$deploymentDirectory\automaticCurrentControl.ino").replace('{{CurrentValues}}', "{$currentValues}").replace('{{IntervalInSeconds}}',"$changeInterval").replace('{{ValuesCount}}',"$valuesCount") | Set-Content "$deploymentDirectory\automaticCurrentControl.ino"
 Write-Host "Finished replacing placeholders" -ForegroundColor Green
 
 Write-Host "Build script finished"
