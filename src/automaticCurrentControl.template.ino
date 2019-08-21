@@ -5,7 +5,8 @@ int valueIndex=0;
 float resolution=0.025;
 
 void setup() {
-   //MSB->LSB
+   //LSB->MSB
+    Serial.begin(9600);
    pinMode(2,OUTPUT);
    pinMode(3,OUTPUT);
    pinMode(4,OUTPUT);
@@ -18,6 +19,21 @@ void setup() {
    pinMode(11,OUTPUT);
    pinMode(12,OUTPUT);
    pinMode(13,OUTPUT);
+
+   // stavi sve pinove u low
+  digitalWrite(2, LOW);    //  LSB    000000 00000*  
+  digitalWrite(3, LOW);    //         000000 0000*0
+  digitalWrite(4, LOW);    //         000000 000*00  *
+  digitalWrite(5, LOW);    //         000000 00*000 
+  digitalWrite(6, LOW);    //         000000 0*0000   
+  digitalWrite(7, LOW);    //         000000 *00000  *
+  digitalWrite(8, LOW);    //         00000* 000000
+  digitalWrite(9, LOW);    //         0000*0 000000  
+  digitalWrite(10, LOW);   //         000*00 000000  * 
+  digitalWrite(11, LOW);   //         00*000 000000   
+  digitalWrite(12, LOW);   //         0*0000 000000   
+  digitalWrite(13, LOW);   //  MSB    *00000 000000  *
+  digitalWrite(A0, LOW); //  LDAC okidanje
 }
 
 void loop() {
@@ -44,7 +60,11 @@ void decToBinary(int n)
 void setPinValues(){
   int outputPinOffset=2;
   
-  for(int i=0;i<12;i++){
-    digitalWrite(i+outputPinOffset,currentBinaryValue[i]);
+  for(int i=11;i<=0;i--){
+    digitalWrite(i+outputPinOffset,currentBinaryValue[11-i]);
   }   
+
+  digitalWrite(A0, HIGH);     // sklopka pritisnuta - load DAC
+  delayMicroseconds(100);     // transfer input latches  to  the  DAC  latches
+  digitalWrite(A0, LOW);  
 }
