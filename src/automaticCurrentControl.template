@@ -6,35 +6,33 @@ int valueIndex=0;
 float resolution=0.025;
 
 void setup() {
-   //LSB->MSB
-    Serial.begin(9600);
-   pinMode(2,OUTPUT);
-   pinMode(3,OUTPUT);
-   pinMode(4,OUTPUT);
-   pinMode(5,OUTPUT);
-   pinMode(6,OUTPUT);
-   pinMode(7,OUTPUT);
-   pinMode(8,OUTPUT);
-   pinMode(9,OUTPUT);
-   pinMode(10,OUTPUT);
-   pinMode(11,OUTPUT);
-   pinMode(12,OUTPUT);
-   pinMode(13,OUTPUT);
+  //LSB->MSB
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT);
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(13,OUTPUT);
 
-   // stavi sve pinove u low
-  digitalWrite(2, LOW);    //  LSB    000000 00000*  
-  digitalWrite(3, LOW);    //         000000 0000*0
-  digitalWrite(4, LOW);    //         000000 000*00  *
-  digitalWrite(5, LOW);    //         000000 00*000 
-  digitalWrite(6, LOW);    //         000000 0*0000   
-  digitalWrite(7, LOW);    //         000000 *00000  *
-  digitalWrite(8, LOW);    //         00000* 000000
-  digitalWrite(9, LOW);    //         0000*0 000000  
-  digitalWrite(10, LOW);   //         000*00 000000  * 
-  digitalWrite(11, LOW);   //         00*000 000000   
-  digitalWrite(12, LOW);   //         0*0000 000000   
-  digitalWrite(13, LOW);   //  MSB    *00000 000000  *
-  digitalWrite(A0, LOW); //  LDAC okidanje
+  digitalWrite(2, LOW);    
+  digitalWrite(3, LOW);    
+  digitalWrite(4, LOW);    
+  digitalWrite(5, LOW);    
+  digitalWrite(6, LOW);    
+  digitalWrite(7, LOW);    
+  digitalWrite(8, LOW);    
+  digitalWrite(9, LOW);    
+  digitalWrite(10, LOW);   
+  digitalWrite(11, LOW);   
+  digitalWrite(12, LOW);   
+  digitalWrite(13, LOW);   
+  digitalWrite(A0, LOW);   //  LDAC okidanje
 }
 
 void loop() {
