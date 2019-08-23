@@ -1,6 +1,6 @@
 float currentValues[]={{CurrentValues}};
 int currentBinaryValue[12];//MSB->LSB
-int intervalInSeconds={{IntervalInSeconds}};
+unsigned long intervalInSeconds={{IntervalInSeconds}}L;
 int valuesCount={{ValuesCount}};
 int valueIndex=0;
 float resolution=0.025;
