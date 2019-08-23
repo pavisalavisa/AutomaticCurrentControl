@@ -7,7 +7,7 @@ float resolution=0.025;
 
 void setup() {
    //LSB->MSB
-    Serial.begin(9600);
+   Serial.begin(9600);
    pinMode(2,OUTPUT);
    pinMode(3,OUTPUT);
    pinMode(4,OUTPUT);
@@ -50,10 +50,13 @@ void setCurrentValue(int valueIndex){
    float decimalCurrentValue=currentValues[valueIndex]/resolution;
 
    Serial.print("Current value is:");
-   Serial.println(decimalCurrentValue);
+   Serial.print(decimalCurrentValue);
+   Serial.print(" (");
+   Serial.print(currentValues[valueIndex]);
+   Serial.println(" A)");
 
    decToBinary(decimalCurrentValue);
-   
+
    setPinValues();
 }
 
