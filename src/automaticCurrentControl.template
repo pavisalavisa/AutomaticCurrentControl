@@ -63,7 +63,7 @@ void decToBinary(int n)
 void setPinValues(){
   int outputPinOffset=2;
   
-  for(int i=11;i<=0;i--){
+  for(int i=11;i>=0;i--){
     digitalWrite(i+outputPinOffset,currentBinaryValue[11-i]);
   }   
 
