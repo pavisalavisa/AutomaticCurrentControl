@@ -28,7 +28,6 @@ Write-Host "Finished cleaning build artifacts" -ForegroundColor Green
 
 Write-Host "Creating deployments directory structure" -ForegroundColor Magenta
 New-Item -Path $deploymentDirectory -ItemType Directory -Force -ErrorAction Continue | Out-Null
-# New-Item -Path $deploymentDirectory\automaticCurrentControl -ItemType Directory -Force -ErrorAction Continue | Out-Null
 Write-Host "Finished creating deployments directory structure" -ForegroundColor Green
 
 $currentValues=Get-Current-Values $currentValuesPath
