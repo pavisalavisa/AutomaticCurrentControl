@@ -48,7 +48,12 @@ void loop() {
 
 void setCurrentValue(int valueIndex){
    float decimalCurrentValue=currentValues[valueIndex]/resolution;
+
+   Serial.print("Current value is:");
+   Serial.println(decimalCurrentValue);
+
    decToBinary(decimalCurrentValue);
+   
    setPinValues();
 }
 
@@ -65,7 +70,15 @@ void setPinValues(){
   
   for(int i=11;i>=0;i--){
     digitalWrite(i+outputPinOffset,currentBinaryValue[11-i]);
+
+    Serial.print(i+outputPinOffset);
+    Serial.print(":");
+    Serial.print(currentBinaryValue[11-i]);
+    Serial.print(", ");   
   }   
+
+  Serial.println();
+  Serial.println("********");
 
   digitalWrite(A0, HIGH);     // sklopka pritisnuta - load DAC
   delayMicroseconds(100);     // transfer input latches  to  the  DAC  latches
