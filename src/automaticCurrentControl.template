@@ -1,7 +1,7 @@
 float currentValues[]={{CurrentValues}};
 int currentBinaryValue[12];//MSB->LSB
 int intervalInSeconds={{IntervalInSeconds}};
-int valuesCount={{ValuesCount}}
+int valuesCount={{ValuesCount}};
 int valueIndex=0;
 float resolution=0.025;
 
@@ -34,7 +34,7 @@ void setup() {
   digitalWrite(11, LOW);   //         00*000 000000   
   digitalWrite(12, LOW);   //         0*0000 000000   
   digitalWrite(13, LOW);   //  MSB    *00000 000000  *
-  digitalWrite(A0, LOW); //  LDAC okidanje
+  digitalWrite(A0, LOW);   //  LDAC okidanje
 }
 
 void loop() {
